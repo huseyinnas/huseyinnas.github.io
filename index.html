@@ -353,7 +353,7 @@ footer{padding:2rem 0 calc(3rem + env(safe-area-inset-bottom));border-top:1px so
     hops.forEach(function(l){l.classList.remove('hit','ping')});
     packet.style.opacity=0;trail.style.opacity=0;out.classList.remove('on');
   }
-  function ping(l){l.classList.remove('ping');void l.offsetWidth;l.classList.add('ping')}
+  function ping(l){if(reduce)return;l.classList.remove('ping');void l.offsetWidth;l.classList.add('ping')}
   function burst(p){
     for(var i=0;i<16;i++){
       var s=document.createElement('span');s.className='spark';fig.appendChild(s);
@@ -370,10 +370,10 @@ footer{padding:2rem 0 calc(3rem + env(safe-area-inset-bottom));border-top:1px so
       return r.arrayBuffer().then(function(){return {status:r.status,ms:Math.round(performance.now()-t)}});
     }).catch(function(){return null});
   }
-  function run(){
+  function run(user){
     var my=++token;reset();
     var req=measure();
-    if(reduce){hops.forEach(function(l){l.classList.add('hit')});req.then(show);return}
+    if(reduce&&!user){hops.forEach(function(l){l.classList.add('hit')});req.then(show);return}
     var pts=hops.map(center),n=pts.length,seg=480,T=seg*(n-1),vert=mobileQ.matches,
         x0=pts[0].x,y0=pts[0].y,len=vert?pts[n-1].y-y0:pts[n-1].x-x0;
     // trail geometry
@@ -390,7 +390,7 @@ footer{padding:2rem 0 calc(3rem + env(safe-area-inset-bottom));border-top:1px so
     // arrival: sparks, then the response travels back and the trail drains
     later(function(){
       if(my!==token)return;
-      burst(pts[n-1]);
+      if(!reduce)burst(pts[n-1]);
       var back=pts.slice().reverse().map(function(p,i){return {transform:'translate('+(p.x-8)+'px,'+(p.y-8)+'px) scale(1)',offset:i/(n-1)}});
       anims.push(packet.animate(back,{duration:T*.8,easing:'ease-in-out',fill:'forwards'}));
       trail.style.transformOrigin=vert?'bottom':'right';
@@ -405,7 +405,7 @@ footer{padding:2rem 0 calc(3rem + env(safe-area-inset-bottom));border-top:1px so
     if(r&&r.status!==200)out.textContent='Status '+r.status+' in '+r.ms+' ms';
     out.classList.add('on');
   }
-  btn.addEventListener('click',run);
+  btn.addEventListener('click',function(){run(true)});
   window.addEventListener('load',function(){setTimeout(run,500)});
   var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){reset();hops.forEach(function(l){l.classList.add('hit')})},200)});
 })();
