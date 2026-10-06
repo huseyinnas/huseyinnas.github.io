@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Hüseyin Nas - DevOps Engineer</title>
+<meta name="description" content="Hüseyin Nas is a DevOps engineer running cloud infrastructure and CI/CD on AWS and GCP. Based in Kocaeli, Türkiye, open to remote roles.">
+<link rel="canonical" href="https://huseyinnas.github.io/">
+<meta name="color-scheme" content="light dark">
+<meta property="og:site_name" content="Hüseyin Nas">
+<meta property="og:title" content="Hüseyin Nas - DevOps Engineer">
+<meta property="og:description" content="I keep infrastructure boring: automated, observable and easy to roll back. DevOps engineer on AWS and GCP, open to remote roles.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://huseyinnas.github.io/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://huseyinnas.github.io/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hüseyin Nas, DevOps engineer. I keep infrastructure boring: automated, observable and easy to roll back.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hüseyin Nas - DevOps Engineer">
+<meta name="twitter:description" content="I keep infrastructure boring: automated, observable and easy to roll back.">
+<meta name="twitter:image" content="https://huseyinnas.github.io/og.png">
+<meta name="theme-color" content="#edf0f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1419" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&amp;display=swap">
+<style>
+:root{
+  --bg:#edf0f2;
+  --surface:#e2e7eb;
+  --ink:#0f1a24;
+  --muted:#4d5d6a;
+  --rule:#c3ccd3;
+  --signal:#e8590c;
+  --signal-text:#b8460a;
+  --font:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0e1419;
+    --surface:#161e25;
+    --ink:#e6ebee;
+    --muted:#98a6b1;
+    --rule:#2a3641;
+    --signal:#ff8a4c;
+    --signal-text:#ff9a63;
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:clip;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-color:var(--signal);text-decoration-thickness:2px;text-underline-offset:.2em}
+a:hover{color:var(--signal-text)}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--bg);padding:.6rem 1rem;z-index:10}
+.skip:focus{left:1rem;top:1rem}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 max(1.5rem,env(safe-area-inset-right)) 0 max(1.5rem,env(safe-area-inset-left))}
+img{max-width:100%;height:auto}
+h1,h2,h3,p,li,dd,dt,a,span,b,strong{overflow-wrap:break-word}
+.hero,.body,section>*,.path,.hops li{min-width:0}
+
+/* top bar */
+.bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem 0;font-weight:500}
+.bar nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+.bar a{text-decoration:none;padding:.6rem 0;display:inline-block}
+.bar a:hover{text-decoration:underline}
+
+/* hero */
+.hero{padding:clamp(3rem,9vw,7rem) 0 clamp(3rem,7vw,5rem)}
+.hero h1{margin:0;font-size:clamp(3rem,13vw,9.5rem);line-height:.92;font-weight:800;letter-spacing:-.045em}
+.hero .lede{max-width:34em;margin:2rem 0 0;font-size:clamp(1.2rem,2.4vw,1.6rem);line-height:1.4;font-weight:500;letter-spacing:-.01em}
+.hero .links{display:flex;flex-wrap:wrap;gap:.75rem 1.75rem;margin:2rem 0 0;font-weight:700}
+.btn{display:inline-block;min-height:44px;line-height:1.6;background:var(--ink);color:var(--bg);padding:.7rem 1.3rem;border-radius:4px;text-decoration:none}
+.btn:hover{background:var(--signal);color:#fff}
+.hero .links a:not(.btn){align-self:center}
+
+.hero .sub{max-width:34em;margin:1rem 0 0;color:var(--muted);font-size:1.1rem}
+/* blueprint grid behind the hero */
+.hero{position:relative}
+.hero::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);z-index:-1;background-image:radial-gradient(var(--rule) 1.2px,transparent 1.2px);background-size:28px 28px;-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent);mask-image:linear-gradient(to bottom,#000 55%,transparent);opacity:.8}
+
+/* the one memorable thing: a request travelling to this page */
+.path{position:relative;margin:clamp(3rem,7vw,5rem) 0 0;padding:1.1rem 1.25rem 1.5rem;border:2px solid var(--ink);border-radius:6px;background:var(--bg)}
+.path figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem 1.5rem;font-weight:700}
+.path button{font:inherit;font-weight:700;color:var(--ink);background:transparent;border:2px solid var(--ink);border-radius:4px;padding:.35rem .9rem;cursor:pointer}
+.path button:hover{background:var(--ink);color:var(--bg)}
+.hops{position:relative;list-style:none;margin:2.4rem 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem}
+.hops::before{content:"";position:absolute;left:12.5%;right:12.5%;top:.55rem;border-top:2px dashed var(--rule)}
+.hops li{position:relative;text-align:center;padding-top:1.9rem;line-height:1.3}
+.hops li::before{content:"";position:absolute;left:50%;top:0;width:1.1rem;height:1.1rem;margin-left:-.55rem;border-radius:50%;background:var(--bg);border:2px solid var(--ink);transition:background .2s,border-color .2s,transform .2s}
+.hops li.hit::before{background:var(--signal);border-color:var(--signal);transform:scale(1.25)}
+.hops b{display:block}
+.hops span{display:block;color:var(--muted);font-size:.9rem}
+.packet{position:absolute;left:0;top:0;width:.9rem;height:.9rem;border-radius:50%;background:var(--signal);box-shadow:0 0 0 6px color-mix(in srgb,var(--signal) 25%,transparent);opacity:0;pointer-events:none}
+@media (max-width:760px){
+  .hops{grid-template-columns:1fr;gap:1.1rem;margin-top:1.6rem;padding-left:2.2rem}
+  .hops::before{left:.55rem;right:auto;top:.5rem;bottom:.5rem;border-top:0;border-left:2px dashed var(--rule)}
+  .hops li{text-align:left;padding:0 0 0 .2rem}
+  .hops li::before{left:-2.2rem;margin-left:0;top:.15rem}
+}
+
+
+/* showy bits */
+.path{overflow:hidden}
+.ctl{display:inline-flex;align-items:center;gap:.9rem}
+#result{font-weight:700;color:var(--signal-text);min-width:8.5rem;text-align:right;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s}
+#result.on{opacity:1;transform:none}
+.trail{position:absolute;left:0;top:0;border-radius:3px;background:linear-gradient(90deg,transparent,var(--signal));box-shadow:0 0 14px 1px var(--signal);opacity:0;pointer-events:none}
+.packet{z-index:2;width:1rem;height:1rem;background:#fff;box-shadow:0 0 0 4px var(--signal),0 0 22px 8px var(--signal)}
+.hops li::after{content:"";position:absolute;left:50%;top:0;width:1.1rem;height:1.1rem;margin-left:-.55rem;border-radius:50%;border:2px solid var(--signal);opacity:0;pointer-events:none}
+.hops li.ping::after{animation:ring .8s ease-out}
+@keyframes ring{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(3.4)}}
+.hops li.hit b{color:var(--signal-text);transition:color .2s}
+.spark{position:absolute;left:0;top:0;width:7px;height:7px;border-radius:50%;background:var(--signal);pointer-events:none;z-index:3}
+@media (max-width:760px){
+  .hops li::after{left:-2.2rem;margin-left:0;top:.15rem}
+  #result{text-align:left}
+}
+
+/* sections */
+section{display:grid;grid-template-columns:220px minmax(0,1fr);gap:1rem 3rem;padding:clamp(2.5rem,6vw,4.5rem) 0;border-top:1px solid var(--rule)}
+section>h2{margin:0;font-size:1.5rem;line-height:1.2;font-weight:800;letter-spacing:-.02em}
+.body{max-width:42rem}
+.body p{margin:0 0 1.2rem}
+.body p:last-child{margin-bottom:0}
+
+/* about */
+.about-top{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:2rem;align-items:start}
+.about-top img{width:150px;height:150px;object-fit:cover;border-radius:4px;filter:grayscale(.15)}
+.skills{margin:2rem 0 0}
+.skills .row{display:grid;grid-template-columns:9rem 1fr;gap:1rem;padding:.7rem 0;border-top:1px solid var(--rule)}
+.skills dt{font-weight:700}
+.skills dd{margin:0;color:var(--muted)}
+
+/* timeline */
+.job{position:relative;padding:0 0 2.75rem 2rem;border-left:2px solid var(--rule)}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:-.55rem;top:.45rem;width:.9rem;height:.9rem;border-radius:50%;background:var(--bg);border:2px solid var(--ink)}
+.job.current::before{background:var(--signal);border-color:var(--signal)}
+.job .when{margin:0;color:var(--muted);font-weight:500}
+.job h3{margin:.15rem 0 0;font-size:1.3rem;line-height:1.3;font-weight:700;letter-spacing:-.01em}
+.job .where{margin:.2rem 0 0;color:var(--muted)}
+.job ul{margin:1rem 0 0;padding-left:1.1rem}
+.job li{margin:0 0 .55rem;padding-left:.2rem}
+.job li::marker{color:var(--signal)}
+
+/* education */
+.list{margin:0;padding:0;list-style:none}
+.list li{padding:0 0 1.5rem}
+.list li:last-child{padding-bottom:0}
+.list strong{display:block;font-size:1.15rem;line-height:1.35}
+.list span{color:var(--muted)}
+
+/* contact */
+.mail{display:inline-block;max-width:100%;font-size:clamp(1.2rem,6.2vw,2.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;word-break:break-word}
+.contact-links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:1.5rem;font-weight:700}
+
+footer{padding:2rem 0 calc(3rem + env(safe-area-inset-bottom));border-top:1px solid var(--rule);color:var(--muted);font-size:.95rem}
+
+@media (max-width:1000px){
+  section{grid-template-columns:150px minmax(0,1fr);gap:1rem 2rem}
+}
+@media (max-width:760px){
+  section{grid-template-columns:minmax(0,1fr)}
+  .about-top{grid-template-columns:1fr}
+  .about-top img{order:-1;width:110px;height:110px}
+  .skills .row{grid-template-columns:1fr;gap:.1rem}
+}
+
+@media (max-width:760px){
+  .wrap{padding:0 1.25rem}
+  .bar{padding:1.1rem 0}
+  .bar>span{display:none}
+  .bar nav{width:100%;justify-content:space-between;gap:.5rem}
+  .hero{padding-top:1.5rem}
+  .hero h1{font-size:clamp(3.2rem,20.5vw,7rem);line-height:.88;overflow-wrap:anywhere}
+  .hero .lede{margin-top:1.5rem}
+  .hero .links{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:1rem 1.5rem}
+  .hero .links .btn{grid-column:1/-1;text-align:center}
+  .path{padding:1rem 1rem 1.4rem}
+  .path figcaption{flex-direction:column;align-items:stretch}
+  .ctl{width:100%;justify-content:space-between;flex-wrap:wrap;gap:.6rem .9rem}
+  .path button{white-space:nowrap}
+  #result{min-width:0;white-space:nowrap}
+  .path button{padding:.35rem .7rem}
+  section>h2{font-size:1.3rem}
+  .job{padding-left:1.4rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <header class="bar">
+    <span>Hüseyin Nas</span>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="hero">
+      <h1>Hüseyin Nas</h1>
+      <p class="lede">I keep infrastructure boring: automated, observable and easy to roll back.</p>
+      <p class="sub">DevOps engineer with 4+ years in Linux and cloud operations. Based in Kocaeli, open to remote roles.</p>
+      <p class="links">
+        <a class="btn" href="./cv.pdf">Download resume</a>
+        <a href="mailto:nashuseyin@gmail.com">Email</a>
+        <a href="https://github.com/huseyinnas" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/huseyinnas" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+
+      <figure class="path" aria-label="A request travelling to this page">
+        <figcaption>
+          <span>Every request to this page takes a short trip. Follow one.</span>
+          <span class="ctl"><output id="result" aria-live="polite"></output><button type="button" id="replay">Send request again</button></span>
+        </figcaption>
+        <ol class="hops" id="hops">
+          <li><b>Visitor</b><span>you</span></li>
+          <li><b>Edge</b><span>encrypted connection</span></li>
+          <li><b>Server</b><span>static files</span></li>
+          <li><b>Page</b><span>this one</span></li>
+        </ol>
+        <span class="trail" id="trail" aria-hidden="true"></span>
+        <span class="packet" id="packet" aria-hidden="true"></span>
+      </figure>
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="body">
+        <div class="about-top">
+          <p>DevOps engineer with 4+ years of Linux systems and cloud operations experience. I am one of two DevOps engineers for a Germany-based e-commerce group, running production and staging workloads on AWS and GCP. I own CI/CD pipelines, RDS databases and access security end to end, and work hands-on with Kubernetes and Terraform (AI-assisted).</p>
+          <img src="images/huseyin.jpeg" alt="Portrait of Hüseyin Nas" width="150" height="150">
+        </div>
+        <dl class="skills">
+          <div class="row"><dt>Cloud</dt><dd>AWS (EC2, VPC, IAM, RDS, S3, EKS, Route 53, SSM, CloudWatch), GCP (GKE, Compute Engine), Cloudflare</dd></div>
+          <div class="row"><dt>CI/CD</dt><dd>GitHub Actions, Jenkins, SonarQube Cloud, Maven, Git</dd></div>
+          <div class="row"><dt>Containers and IaC</dt><dd>Docker, Docker Compose, Helm; Kubernetes and Terraform (hands-on, AI-assisted)</dd></div>
+          <div class="row"><dt>Monitoring</dt><dd>Site24x7, Prometheus, Grafana</dd></div>
+          <div class="row"><dt>Databases</dt><dd>PostgreSQL, MariaDB (Amazon RDS)</dd></div>
+          <div class="row"><dt>Systems</dt><dd>Linux (Ubuntu, Debian), Windows Server</dd></div>
+          <div class="row"><dt>Scripting</dt><dd>Bash, Python (AI-assisted)</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="body">
+        <article class="job current">
+          <p class="when">April 2024 - present</p>
+          <h3>DevOps Engineer, <a href="https://ayti.tech/" target="_blank" rel="noopener">Ayti.Tech</a> (Ottoo)</h3>
+          <p class="where">DevOps and cloud consulting for a Germany-based e-commerce group. Two-person DevOps team.</p>
+          <ul>
+            <li>Build and maintain 30+ CI/CD pipelines in GitHub Actions and Jenkins, making most deploys self-service for developers; sped up a slow build with Maven dependency caching.</li>
+            <li>Run production and staging workloads on AWS and GCP: size and snapshot EC2 instances, manage VPCs and IAM policies, and track AWS Budgets to catch cost overruns early.</li>
+            <li>Own PostgreSQL and MariaDB on Amazon RDS end to end, including a major-version upgrade (14 to 18) with a tested rollback and restore plan.</li>
+            <li>Replaced long-lived production SSH keys with AWS SSM Session Manager; manage Cloudflare DNS, WAF, Zero Trust and edge TLS.</li>
+            <li>Build monitoring dashboards and alert rules (Site24x7, Prometheus/Grafana) and route alerts to Microsoft Teams.</li>
+            <li>Operate GKE clusters day to day; created an EKS cluster and use Terraform (AI-assisted) for infrastructure changes.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <p class="when">February 2022 - April 2024</p>
+          <h3>Junior System Administrator, <a href="https://www.dijitohum.com.tr/" target="_blank" rel="noopener">Dijitohum</a></h3>
+          <p class="where">Kocaeli, Türkiye. Assigned to Bilişim Vadisi (Kocaeli technology park) from August 2022.</p>
+          <ul>
+            <li>Administered ~7 physical servers and roughly 50 Linux and Windows virtual machines across VMware and Xen (Bivabu Cloud).</li>
+            <li>Helped build Bivabu Cloud, Bilişim Vadisi's private cloud platform, working with a partner firm on server setup, virtualization, and Linux image and software installs.</li>
+            <li>Managed basic Windows Server administration (Active Directory, mail, file server) alongside Linux systems work.</li>
+            <li>Provided systems and infrastructure support for the 42 Network coding campuses in Türkiye (100-500 users).</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <p class="when">July 2021 - September 2021</p>
+          <h3>IT Intern, <a href="https://www.akplas.com.tr/" target="_blank" rel="noopener">Akplas Plastik Kalıp Sanayi A.Ş</a></h3>
+          <ul>
+            <li>Gained hands-on experience in system administration, focusing on maintaining and troubleshooting IT systems.</li>
+            <li>Worked on network performance optimization and basic data security measures.</li>
+            <li>Assisted in day-to-day IT operations, ensuring smooth functioning of infrastructure.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education and certification</h2>
+      <div class="body">
+        <ul class="list">
+          <li>
+            <strong>B.Sc. Information Systems Engineering</strong>
+            <span><a href="https://www.kocaeli.edu.tr/" target="_blank" rel="noopener">Kocaeli University</a>, 2019 - February 2024</span>
+          </li>
+          <li>
+            <strong>Cloud Computing and DevOps Bootcamp</strong>
+            <span>Ottoo Academy, March 2024. 240 hours: Linux administration, Git/GitHub, AWS core services, Docker and Kubernetes, CI/CD with GitHub Actions, Infrastructure as Code with Terraform. <a href="https://credsverse.com/credentials/483a1ba7-5285-4cc0-ab4b-df793af99f04" target="_blank" rel="noopener">View certificate</a></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="body">
+        <p>Open to DevOps and cloud roles, remote preferred. Email is the fastest way to reach me.</p>
+        <a class="mail" href="mailto:nashuseyin@gmail.com">nashuseyin@gmail.com</a>
+        <p class="contact-links">
+          <a href="https://www.linkedin.com/in/huseyinnas" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/huseyinnas" target="_blank" rel="noopener">GitHub</a>
+          <a href="./cv.pdf">Resume (PDF)</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>Hüseyin Nas, Kocaeli, Türkiye</footer>
+</div>
+<script>
+(function(){
+  var hops=[].slice.call(document.querySelectorAll('#hops li')),
+      packet=document.getElementById('packet'),
+      trail=document.getElementById('trail'),
+      fig=document.querySelector('.path'),
+      btn=document.getElementById('replay'),
+      out=document.getElementById('result'),
+      reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      mobileQ=window.matchMedia('(max-width:760px)'),
+      timers=[],anims=[],token=0;
+  function center(li){
+    var f=fig.getBoundingClientRect(),r=li.getBoundingClientRect(),
+        d=parseFloat(getComputedStyle(li,'::before').width)||17,
+        b=parseFloat(getComputedStyle(fig).borderLeftWidth)||0;
+    if(mobileQ.matches){return {x:r.left-f.left-b-35+d/2,y:r.top-f.top-b+4+d/2}}
+    return {x:r.left-f.left-b+r.width/2,y:r.top-f.top-b+d/2};
+  }
+  function later(fn,ms){timers.push(setTimeout(fn,ms))}
+  function reset(){
+    timers.forEach(clearTimeout);timers=[];
+    anims.forEach(function(a){a.cancel()});anims=[];
+    hops.forEach(function(l){l.classList.remove('hit','ping')});
+    packet.style.opacity=0;trail.style.opacity=0;out.classList.remove('on');
+  }
+  function ping(l){l.classList.remove('ping');void l.offsetWidth;l.classList.add('ping')}
+  function burst(p){
+    for(var i=0;i<16;i++){
+      var s=document.createElement('span');s.className='spark';fig.appendChild(s);
+      var ang=(Math.PI*2)*i/16+Math.random()*.4,dist=36+Math.random()*46;
+      var a=s.animate([{transform:'translate('+(p.x-3)+'px,'+(p.y-3)+'px) scale(1)',opacity:1},
+        {transform:'translate('+(p.x-3+Math.cos(ang)*dist)+'px,'+(p.y-3+Math.sin(ang)*dist)+'px) scale(.2)',opacity:0}],
+        {duration:650+Math.random()*250,easing:'cubic-bezier(.1,.7,.3,1)'});
+      a.onfinish=(function(el){return function(){el.remove()}})(s);
+    }
+  }
+  function measure(){
+    var t=performance.now();
+    return fetch(location.pathname,{cache:'no-store'}).then(function(r){
+      return r.arrayBuffer().then(function(){return {status:r.status,ms:Math.round(performance.now()-t)}});
+    }).catch(function(){return null});
+  }
+  function run(){
+    var my=++token;reset();
+    var req=measure();
+    if(reduce){hops.forEach(function(l){l.classList.add('hit')});req.then(show);return}
+    var pts=hops.map(center),n=pts.length,seg=480,T=seg*(n-1),vert=mobileQ.matches,
+        x0=pts[0].x,y0=pts[0].y,len=vert?pts[n-1].y-y0:pts[n-1].x-x0;
+    // trail geometry
+    trail.style.cssText=vert
+      ?'left:'+(x0-1.5)+'px;top:'+y0+'px;width:3px;height:'+len+'px;transform-origin:top;background:linear-gradient(180deg,transparent,var(--signal))'
+      :'left:'+x0+'px;top:'+(y0-1.5)+'px;width:'+len+'px;height:3px;transform-origin:left;background:linear-gradient(90deg,transparent,var(--signal))';
+    var sc=function(v){return vert?'scaleY('+v+')':'scaleX('+v+')'};
+    trail.style.opacity=1;
+    packet.style.opacity=1;
+    var go=pts.map(function(p,i){return {transform:'translate('+(p.x-8)+'px,'+(p.y-8)+'px) scale('+(i==n-1?1.5:1)+')',offset:i/(n-1)}});
+    anims.push(packet.animate(go,{duration:T,easing:'linear',fill:'forwards'}));
+    anims.push(trail.animate([{transform:sc(0)},{transform:sc(1)}],{duration:T,easing:'linear',fill:'forwards'}));
+    hops.forEach(function(l,i){later(function(){if(my!==token)return;l.classList.add('hit');ping(l)},i*seg)});
+    // arrival: sparks, then the response travels back and the trail drains
+    later(function(){
+      if(my!==token)return;
+      burst(pts[n-1]);
+      var back=pts.slice().reverse().map(function(p,i){return {transform:'translate('+(p.x-8)+'px,'+(p.y-8)+'px) scale(1)',offset:i/(n-1)}});
+      anims.push(packet.animate(back,{duration:T*.8,easing:'ease-in-out',fill:'forwards'}));
+      trail.style.transformOrigin=vert?'bottom':'right';
+      trail.style.background=vert?'linear-gradient(0deg,transparent,var(--signal))':'linear-gradient(270deg,transparent,var(--signal))';
+      anims.push(trail.animate([{transform:sc(1)},{transform:sc(0)}],{duration:T*.8,easing:'ease-in-out',fill:'forwards'}));
+      for(var k=n-2;k>=0;k--){(function(l,d){later(function(){if(my===token)ping(l)},d)})(hops[k],(n-1-k)*seg*.8)}
+    },T+80);
+    later(function(){if(my!==token)return;packet.style.opacity=0;req.then(function(r){if(my===token)show(r)})},T+80+T*.8+60);
+  }
+  function show(r){
+    out.textContent=r?(r.status+' OK in '+r.ms+' ms'):'Delivered';
+    if(r&&r.status!==200)out.textContent='Status '+r.status+' in '+r.ms+' ms';
+    out.classList.add('on');
+  }
+  btn.addEventListener('click',run);
+  window.addEventListener('load',function(){setTimeout(run,500)});
+  var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){reset();hops.forEach(function(l){l.classList.add('hit')})},200)});
+})();
+</script>
+</body>
+</html>
